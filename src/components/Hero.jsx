@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="hero__content">
           {/* Enrollment badge */}
           <div className="hero__badge">
-            <span>🎉 Now Enrolling — Openings Available!</span>
+            <span>🎉 Now Enrolling — Openingss Available!</span>
           </div>
 
           <h1 className="hero__heading">
