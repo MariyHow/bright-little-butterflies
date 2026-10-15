@@ -1,0 +1,6 @@
+/bright-little-butterflies/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
