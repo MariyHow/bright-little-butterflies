@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section id="home" className="hero">
       {/* Decorative butterflies */}
-      <span className="hero__deco hero__deco--tl" aria-hidden="true">🦋</span>
+      <span className="hero__deco hero__deco--tl" aria-hidden="true">🦋s</span>
       <span className="hero__deco hero__deco--tr" aria-hidden="true">🦋</span>
       <span className="hero__deco hero__deco--bl" aria-hidden="true">✨</span>
       <span className="hero__deco hero__deco--br" aria-hidden="true">🌟</span>
