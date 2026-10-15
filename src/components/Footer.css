@@ -1,0 +1,119 @@
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  background-color: var(--color-purple-dark);
+  color: var(--color-white);
+  padding: 3rem 1.5rem 0;
+}
+
+.footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ---- Brand block ---- */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer__name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+/* Reuse logo color classes from Navbar */
+.footer__name .logo-bright       { color: #86efac; }
+.footer__name .logo-little       { color: #7dd3fc; }
+.footer__name .logo-butterflies  { color: #c4b5fd; }
+.footer__llc                      { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+.footer__tagline {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
+}
+
+.footer__location {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+}
+
+/* ---- Nav & Contact columns ---- */
+.footer__nav-heading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #86efac;
+  margin-bottom: 0.85rem;
+}
+
+.footer__nav ul,
+.footer__contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__nav a,
+.footer__contact a {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__nav a:hover,
+.footer__contact a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.footer__fb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* ---- Bottom bar ---- */
+.footer__bottom {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+.footer__bottom p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__disclaimer {
+  font-size: 0.75rem !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 700px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
