@@ -32,9 +32,9 @@
 }
 
 /* Reuse logo color classes from Navbar */
-.footer__name .logo-bright       { color: #86efac; }
-.footer__name .logo-little       { color: #7dd3fc; }
-.footer__name .logo-butterflies  { color: #c4b5fd; }
+.footer__name .logo-bright       { color: #a8d99a; }
+.footer__name .logo-little       { color: #8fd4e0; }
+.footer__name .logo-butterflies  { color: #f0b4e8; }
 .footer__llc                      { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
 
 .footer__tagline {
@@ -58,7 +58,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #86efac;
+  color: #a8d99a;
   margin-bottom: 0.85rem;
 }
 

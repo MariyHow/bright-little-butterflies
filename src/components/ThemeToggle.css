@@ -1,0 +1,204 @@
+/* ============================================================
+   ThemeToggle — hero butterfly + nav toolbar ball
+   ============================================================ */
+
+/* ---- Navbar compact ball ---- */
+.theme-toggle-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: transparent;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.28rem 0.6rem 0.28rem 0.4rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.15s;
+}
+
+.theme-toggle-nav:hover {
+  border-color: var(--color-purple);
+  background-color: var(--color-surface);
+}
+
+.theme-toggle-nav:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 2px;
+}
+
+.theme-toggle-nav__butterfly {
+  display: inline-block;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition:
+    filter var(--theme-duration) var(--theme-easing),
+    transform 0.25s ease;
+}
+
+.theme-toggle-nav--light .theme-toggle-nav__butterfly {
+  filter: sepia(1) saturate(8) hue-rotate(-25deg) brightness(1.05);
+}
+
+.theme-toggle-nav--dark .theme-toggle-nav__butterfly {
+  filter: sepia(1) saturate(6) hue-rotate(220deg) brightness(0.95);
+}
+
+.theme-toggle-nav:active .theme-toggle-nav__butterfly {
+  transform: scale(1.15) rotate(-8deg);
+}
+
+.theme-toggle-nav__hint {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.theme-toggle-nav--light .theme-toggle-nav__hint {
+  color: var(--color-orange);
+}
+
+.theme-toggle-nav--dark .theme-toggle-nav__hint {
+  color: var(--color-purple);
+}
+
+/* ---- Hero toggle + press cue ---- */
+
+.theme-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.1rem;
+  margin-bottom: 0.15rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.theme-toggle-wrap:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.25rem;
+  border-radius: 14px;
+  line-height: 1;
+  transition: transform 0.2s ease, background-color 0.2s;
+  order: 1;
+}
+
+.theme-toggle-wrap:hover .theme-toggle {
+  background-color: color-mix(in srgb, var(--color-orange) 14%, transparent);
+  transform: scale(1.1);
+}
+
+.theme-toggle-wrap--dark:hover .theme-toggle {
+  background-color: color-mix(in srgb, var(--color-purple) 16%, transparent);
+}
+
+.theme-toggle__butterfly {
+  display: inline-block;
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  line-height: 1;
+  transition:
+    filter var(--theme-duration) var(--theme-easing),
+    transform 0.25s ease;
+}
+
+/* Light mode: orange butterfly */
+.theme-toggle--light .theme-toggle__butterfly {
+  filter: sepia(1) saturate(8) hue-rotate(-25deg) brightness(1.05);
+}
+
+/* Dark mode (pressed): purple butterfly */
+.theme-toggle--dark .theme-toggle__butterfly {
+  filter: sepia(1) saturate(6) hue-rotate(220deg) brightness(0.95);
+}
+
+.theme-toggle-wrap:active .theme-toggle__butterfly {
+  transform: scale(1.12) rotate(-10deg);
+}
+
+/* Callout label with curved arrow pointing at the butterfly */
+.theme-toggle-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  order: 2;
+  animation: theme-cue-nudge 2.6s ease-in-out infinite;
+}
+
+.theme-toggle-wrap--light .theme-toggle-cue {
+  color: var(--color-orange);
+}
+
+.theme-toggle-wrap--dark .theme-toggle-cue {
+  color: var(--color-purple);
+}
+
+.theme-toggle-cue__pointer {
+  display: flex;
+  flex-shrink: 0;
+  transform: rotate(8deg);
+  opacity: 0.9;
+}
+
+.theme-toggle-cue__text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 2px dashed currentColor;
+  background-color: color-mix(in srgb, currentColor 10%, var(--color-bg));
+  box-shadow: 0 4px 14px color-mix(in srgb, currentColor 12%, transparent);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.theme-toggle-wrap:hover .theme-toggle-cue__text {
+  background-color: color-mix(in srgb, currentColor 18%, var(--color-bg));
+  transform: translateY(-1px);
+}
+
+@keyframes theme-cue-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theme-toggle-cue {
+    order: 0;
+  }
+
+  .theme-toggle-cue__pointer {
+    transform: rotate(-90deg);
+  }
+
+  .theme-toggle-cue__text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-cue {
+    animation: none;
+  }
+}

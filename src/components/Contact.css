@@ -50,10 +50,42 @@
   grid-template-columns: 220px 1fr;
   gap: 2rem;
   align-items: start;
-  background: linear-gradient(135deg, #f5f3ff 0%, #e0f2fe 100%);
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: 2rem;
   border: 2px solid var(--color-purple);
+  overflow: hidden;
+}
+
+.contact__bio::before,
+.contact__bio::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity var(--theme-duration) var(--theme-easing);
+}
+
+.contact__bio::before {
+  background: linear-gradient(135deg, #fce8f5 0%, #e8f5f7 100%);
+  opacity: 1;
+}
+
+.contact__bio::after {
+  background: linear-gradient(135deg, #2a1824 0%, #1a2224 100%);
+  opacity: 0;
+}
+
+[data-theme="dark"] .contact__bio::before {
+  opacity: 0;
+}
+
+[data-theme="dark"] .contact__bio::after {
+  opacity: 1;
 }
 
 .bio-photo {
@@ -101,7 +133,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.8rem;
-  background-color: var(--color-white);
+  background-color: var(--color-card);
   border: 2px solid var(--color-purple);
   color: var(--color-purple);
   padding: 0.3rem 0.8rem;
@@ -118,7 +150,7 @@
 
 /* Contact info */
 .contact-info {
-  background-color: var(--color-white);
+  background-color: var(--color-card);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
   border: 2px solid var(--color-border);
@@ -164,7 +196,7 @@
 
 /* ---- Form ---- */
 .contact-form-wrap {
-  background-color: var(--color-white);
+  background-color: var(--color-card);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
   border: 2px solid var(--color-border);

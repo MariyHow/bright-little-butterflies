@@ -2,21 +2,29 @@
    Bright Little Butterflies LLC — Global Styles
    ============================================================ */
 
-/* Brand color tokens */
+/* Brand color tokens — warm, friendly daycare palette */
 :root {
-  --color-green: #4caf50;
-  --color-green-dark: #388e3c;
-  --color-blue: #29b6f6;
-  --color-blue-dark: #0288d1;
-  --color-purple: #7c3aed;
-  --color-purple-dark: #5b21b6;
-  --color-yellow: #f9a825;
-  --color-bg: #fffdf7;
-  --color-surface: #f0fdf4;
-  --color-text: #1a1a2e;
-  --color-muted: #5f6368;
+  --color-green: #6aab5a;
+  --color-green-dark: #4f8f42;
+  --color-blue: #5bb8c9;
+  --color-blue-dark: #3a9aab;
+  --color-purple: #c45db5;
+  --color-purple-dark: #a34496;
+  --color-yellow: #f5b942;
+  --color-orange: #f08a3a;
+  --color-bg: #fff3e8;
+  --color-surface: #ffe8d4;
+  --color-text: #2c2416;
+  --color-muted: #6b5e52;
   --color-white: #ffffff;
-  --color-border: #e2e8f0;
+  --color-card: #fffaf5;
+  --color-border: #ead7c4;
+  --color-badge-text: #4a3300;
+
+  /* Gradients */
+  --hero-gradient: linear-gradient(160deg, #fff3e8 0%, #ffe8d4 45%, #f5d9ef 100%);
+  --bio-gradient: linear-gradient(135deg, #fce8f5 0%, #e8f5f7 100%);
+  --placeholder-gradient: linear-gradient(135deg, #fce8f5 0%, #fff0e0 100%);
 
   /* Typography */
   --font-heading: 'Nunito', system-ui, sans-serif;
@@ -30,6 +38,33 @@
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
+
+  /* Theme switch timing — shared by body, header, sections, footer */
+  --theme-duration: 1.6s;
+  --theme-easing: ease-in-out;
+}
+
+/* Dark theme — warm charcoal + soft peach/berry accents */
+[data-theme="dark"] {
+  --color-green: #8bc97a;
+  --color-green-dark: #a3d994;
+  --color-blue: #7ecbd8;
+  --color-blue-dark: #5bb8c9;
+  --color-purple: #e08ad4;
+  --color-purple-dark: #f0b4e8;
+  --color-yellow: #f5c85a;
+  --color-orange: #f5a05a;
+  --color-bg: #1a1410;
+  --color-surface: #261e18;
+  --color-text: #f5ebe0;
+  --color-muted: #b5a69a;
+  --color-card: #2a211c;
+  --color-border: #3d322a;
+  --color-badge-text: #3d2800;
+
+  --hero-gradient: linear-gradient(160deg, #1a1410 0%, #261e18 45%, #2a1824 100%);
+  --bio-gradient: linear-gradient(135deg, #2a1824 0%, #1a2224 100%);
+  --placeholder-gradient: linear-gradient(135deg, #2a1824 0%, #261e18 100%);
 }
 
 /* ---- Reset ---- */
@@ -50,6 +85,54 @@ body {
   color: var(--color-text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Same pace for page chrome + main surfaces (gradients snap; solids + overlays fade) */
+body,
+.navbar,
+.navbar__links,
+.hero,
+.about,
+.contact,
+.footer,
+.offer-card,
+.experience-card,
+.contact-info,
+.contact-form-wrap,
+.contact__bio,
+.placeholder-img,
+.hero__badge,
+.bio-badges span,
+.theme-toggle-cue__text {
+  transition:
+    background-color var(--theme-duration) var(--theme-easing),
+    color var(--theme-duration) var(--theme-easing),
+    border-color var(--theme-duration) var(--theme-easing),
+    box-shadow var(--theme-duration) var(--theme-easing);
+}
+
+/* Gradual light ↔ dark fade for everything else while the theme is changing */
+html.theme-animating,
+html.theme-animating *,
+html.theme-animating *::before,
+html.theme-animating *::after {
+  transition:
+    background-color var(--theme-duration) var(--theme-easing),
+    background var(--theme-duration) var(--theme-easing),
+    color var(--theme-duration) var(--theme-easing),
+    border-color var(--theme-duration) var(--theme-easing),
+    box-shadow var(--theme-duration) var(--theme-easing),
+    fill var(--theme-duration) var(--theme-easing),
+    stroke var(--theme-duration) var(--theme-easing),
+    filter var(--theme-duration) var(--theme-easing),
+    opacity var(--theme-duration) var(--theme-easing),
+    outline-color var(--theme-duration) var(--theme-easing) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --theme-duration: 0.01ms;
+  }
 }
 
 h1, h2, h3, h4 {

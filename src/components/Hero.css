@@ -4,9 +4,39 @@
 
 .hero {
   position: relative;
-  background: linear-gradient(160deg, #fffdf7 0%, #f0fdf4 50%, #ede9fe 100%);
+  background-color: var(--color-bg);
   padding: 5rem 1.5rem 4rem;
   overflow: hidden;
+  isolation: isolate;
+}
+
+/* Crossfade light/dark hero washes — gradients can't interpolate, opacity can */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity var(--theme-duration) var(--theme-easing);
+}
+
+.hero::before {
+  background: linear-gradient(160deg, #fff3e8 0%, #ffe8d4 45%, #f5d9ef 100%);
+  opacity: 1;
+}
+
+.hero::after {
+  background: linear-gradient(160deg, #1a1410 0%, #261e18 45%, #2a1824 100%);
+  opacity: 0;
+}
+
+[data-theme="dark"] .hero::before {
+  opacity: 0;
+}
+
+[data-theme="dark"] .hero::after {
+  opacity: 1;
 }
 
 /* Decorative floating emojis */
@@ -45,7 +75,7 @@
   align-items: center;
   width: fit-content;
   background-color: var(--color-yellow);
-  color: #4a3300;
+  color: var(--color-badge-text);
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 0.85rem;
@@ -59,10 +89,6 @@
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--color-text);
   line-height: 1.15;
-}
-
-.hero__butterfly {
-  display: inline-block;
 }
 
 /* Subline */

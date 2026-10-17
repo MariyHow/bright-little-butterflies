@@ -1,7 +1,8 @@
 import PlaceholderImg from './PlaceholderImg'
+import ThemeToggle from './ThemeToggle'
 import './Hero.css'
 
-export default function Hero() {
+export default function Hero({ isDark, onToggleTheme }) {
   return (
     <section id="home" className="hero">
       {/* Decorative butterflies */}
@@ -20,8 +21,9 @@ export default function Hero() {
 
           <h1 className="hero__heading">
             A Safe, Loving &amp; Bright Place to Grow
-            <span className="hero__butterfly"> 🦋</span>
           </h1>
+
+          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
 
           <p className="hero__sub">
             Ages 2 &amp; Up &nbsp;·&nbsp; Monday – Friday &nbsp;·&nbsp; Warner Robins, GA
