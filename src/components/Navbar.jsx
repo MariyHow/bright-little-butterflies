@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import ThemeToggle from './ThemeToggle'
 import './Navbar.css'
 // TODO: Drop your logo.png into src/assets/ and uncomment the line below
 // import logo from '../assets/logo.png'
 
-export default function Navbar() {
+export default function Navbar({ isDark, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const closeMenu = () => setMenuOpen(false)
@@ -33,17 +34,21 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* Hamburger toggle (mobile) */}
-        <button
-          className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+        <div className="navbar__actions">
+          <ThemeToggle variant="nav" isDark={isDark} onToggle={onToggleTheme} />
+
+          {/* Hamburger toggle (mobile) */}
+          <button
+            className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
     </header>
   )

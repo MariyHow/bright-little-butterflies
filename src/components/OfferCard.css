@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  background-color: var(--color-white);
+  background-color: var(--color-card);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 0.9rem 1.25rem;

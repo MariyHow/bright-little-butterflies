@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Bright Little Butterflies LLC — Licensed home day care in Warner Robins, Georgia. Ages 2 and up. Now enrolling!" />
     <title>Bright Little Butterflies LLC | Home Day Care</title>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('blb-theme');
+          if (t === 'dark' || t === 'light') {
+            document.documentElement.setAttribute('data-theme', t);
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
 
     <!-- Favicon placeholder — replace with real favicon -->
     <!-- <link rel="icon" type="image/png" href="/favicon.png" /> -->
